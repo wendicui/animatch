@@ -1,0 +1,21 @@
+{
+  "name": "animatch",
+  "version": "1.0.0",
+  "description": "AniMatch App",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geanieblanco/animatch.git"
+  },
+  "author": "Geanie Blanco, Wendi Cui, Deen Liang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/geanieblanco/animatch/issues"
+  },
+  "homepage": "https://github.com/geanieblanco/animatch#readme"
+}
