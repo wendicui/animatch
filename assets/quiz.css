@@ -1,0 +1,24 @@
+body {
+  font-family: 'Nunito', sans-serif;
+}
+.nav-wrapper {
+  background-color: #B47978;
+}
+
+#logo {
+  width: 45%;
+  margin-top: -15px;
+  margin-left: 5px;
+}
+
+#quiz-title {
+  color: #757575;
+}
+
+#animal-check {
+  align: left;
+}
+
+.filled-in {
+  color: #B47978;
+}

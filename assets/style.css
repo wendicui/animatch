@@ -18,6 +18,12 @@ body {
   background-color: #B47978;
 }
 
+#logo {
+  width: 25%;
+  margin-top: -20px;
+  margin-left: 5px;
+}
+
 #welcome-banner {
   margin-top: 200px;
   background-color: rgba(253,253,255,.4);
