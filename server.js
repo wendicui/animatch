@@ -18,7 +18,7 @@ app.get("/account", (req, res) => {
   res.render("account");
 });
 
-app.get("/shelter", (req, res) => {
+app.get("/shelters", (req, res) => {
   res.render("shelter");
 });
 
