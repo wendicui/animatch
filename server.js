@@ -13,7 +13,7 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(express.static("app/public"));
 
 //Express Routes
-require("./app/routes/api-routes.js")(app);
+require("./app/routes/pet.js")(app);
 require("./app/routes/html-routes.js")(app);
 
 //Express server to begin listening

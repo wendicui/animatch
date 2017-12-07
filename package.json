@@ -4,7 +4,8 @@
   "description": "matches pet adoption with users",
   "main": "server.js",
   "dependencies": {
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "request": "^2.83.0"
   },
   "devDependencies": {},
   "scripts": {
