@@ -9,7 +9,7 @@
 }
 
 body {
-  background-image: url("homepage-background.jpeg");
+  background-image: url("../images/homepage-background.jpeg");
   background-size: 100%;
   font-family: 'Nunito', sans-serif;
 }

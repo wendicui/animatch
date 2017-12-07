@@ -15,10 +15,10 @@ body {
   color: #757575;
 }
 
-#animal-check {
-  align: left;
-}
-
 .filled-in {
   color: #B47978;
+}
+
+.helper-text {
+  font-size:12px;
 }

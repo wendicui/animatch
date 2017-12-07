@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+
+  <title>AniMatch</title>
+
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.2/css/materialize.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.2/js/materialize.min.js"></script>
+
+  <!-- Local Stylesheet -->
+  <link rel="stylesheet" href="../assets/stylesheets/quiz.css">
+
+  <!-- GOOGLE FONT -->
+  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+  <!-- LOCAL APP.JS -->
+  <script src="../assets/app.js"></script>
+</head>
+
+<body>
+  <!-- NAV BAR -->
+  <nav>
+    <div class="nav-wrapper">
+      <a href="index.html" class="brand-logo center"><img id="logo" src="../assets/images/logo.png"></a>
+    </div>
+  </nav>
+
+  <!-- QUIZ -->
+  <div class="container">
+    <h2 id="quiz-title">Tell Us About Yourself:</h2>
+    <!-- NAME & EMAIL INPUT -->
+    <div class="row">
+      <div class="input-field col s6">
+        <input id="first_name" type="text" class="validate">
+        <label for="first_name">First Name</label>
+      </div>
+      <div class="input-field col s6">
+        <input id="last_name" type="text" class="validate">
+        <label for="last_name">Last Name</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="email" type="email" class="validate">
+        <label for="email">Email</label>
+      </div>
+    </div>
+
+    <!-- PET SELECTOR -->
+    <div class="row">
+      <div class="col s4 push-s1">
+        <h6>Kind of Animal:</h6>
+        <form id="pet-search">
+          <p><label>
+             <input class="with-gap" type="radio" name="animal-group" id="cat"/>
+             <span>Cat</span>
+           </label></p>
+
+          <p><label>
+             <input class="with-gap" type="radio" name="animal-group" id="dog"/>
+             <span>Dog</span>
+           </label></p>
+
+          <p><label>
+             <input class="with-gap" type="radio" name="animal-group" id="bird"/>
+             <span>Bird</span>
+           </label></p>
+
+          <p><label>
+             <input class="with-gap" type="radio" name="animal-group" id="reptile"/>
+             <span>Reptile</span>
+           </label></p>
+
+          <p><label>
+             <input type="radio" id="smallfurry"/>
+             <span>Small & Furry</span>
+           </label></p>
+        </form>
+      </div>
+
+      <!-- CURRENT PETS -->
+      <div class="col s3">
+        <h6>Current Pets:</h6>
+        <form id="pet-check">
+          <p><label>
+             <input type="checkbox" class="filled-in" id="cat"/>
+             <span>Cat</span>
+           </label></p>
+
+          <p><label>
+             <input type="checkbox" class="filled-in" id="dog"/>
+             <span>Dog</span>
+           </label></p>
+
+          <p><label>
+             <input type="checkbox" class="filled-in" id="other"/>
+             <span>Other (Indicate Below)</span>
+           </label></p>
+          <p>
+            <div class="input-field">
+              <input placeholder="Other Animals" id="other-pet" type="text" class="validate">
+            </div>
+            <span class="helper-text" data-error="wrong" data-success="right">Separate multiple with comma</span>
+          </p>
+        </form>
+      </div>
+      <!-- CHILDREN IN HOME -->
+      <div class="col s4">
+        <h6>Children in Home:</h6>
+        <form id="children-home">
+          <p><label>
+             <input type="checkbox" class="filled-in" id="toddlers-infants"/>
+             <span>Under 7</span>
+           </label></p>
+
+          <p><label>
+             <input type="checkbox" class="filled-in" id="young-children"/>
+             <span>7-12</span>
+           </label></p>
+
+          <p><label>
+            <input type="checkbox" class="filled-in" id="teen-children"/>
+            <span>13-18</span>
+          </label></p>
+
+          <p><label>
+           <input type="checkbox" class="filled-in" id="no-children"/>
+           <span>No Children / Adults Only</span>
+         </label></p>
+        </form>
+      </div>
+    </div>
+
+    <!-- ROW TWO -->
+    <div class="row">
+
+      <!-- HOME TYPE -->
+      <div class="col s4 push-s1">
+        <h6>Type of Home:</h6>
+        <form id="home-type">
+          <p><label>
+             <input class="with-gap" type="radio" name="home-type" id="home-wb"/>
+             <span>House with Backyard</span>
+           </label></p>
+
+          <p><label>
+             <input class="with-gap" type="radio" name="home-type" id="home-wob"/>
+             <span>House without Backyard</span>
+           </label></p>
+
+          <p><label>
+             <input class="with-gap" type="radio" name="home-type" id="apartment"/>
+             <span>Apartment</span>
+           </label></p>
+
+          <p><label>
+             <input class="with-gap" type="radio" name="home-type" id="home-other"/>
+             <span>Other</span>
+           </label></p>
+
+          <p>
+            <div class="input-field col s9">
+              <input placeholder="Other Home Type" id="other-home" type="text" class="validate">
+            </div>
+          </p>
+        </form>
+      </div>
+
+      <!-- ACTIVITY LEVEL -->
+      <div class="col s3">
+        <h6>Level of Activity:</h6>
+        <form id="activity-level">
+          <p><label>
+             <input class="with-gap" type="radio" name="activity-level" id="cat animal-check"/>
+             <span>Highly Active Daily</span>
+           </label></p>
+
+          <p><label>
+             <input class="with-gap" type="radio" name="activity-level" id="dog animal-check"/>
+             <span>Active Daily</span>
+           </label></p>
+
+          <p><label>
+             <input class="with-gap" type="radio" name="activity-level" id="bird animal-check"/>
+             <span>Not Very Active</span>
+           </label></p>
+
+          <p><label>
+              <input class="with-gap" type="radio" name="activity-level" id="bird animal-check"/>
+              <span>Mostly Inactive</span>
+            </label></p>
+        </form>
+      </div>
+
+      <!-- BREED TYPE -->
+      <div class="col s3">
+        <h6>Breed / Type:</h6>
+        <div class="input-field col s12 browser-default">
+          <select multiple>
+            <option value="" disabled selected>Choose your option</option>
+            <option value="Corgi">Corgi</option>
+            <option value="Bulldog">Bulldog</option>
+            <option value="Greyhound">Greyhound</option>
+          </select>
+          <label>Materialize Multiple Select</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
