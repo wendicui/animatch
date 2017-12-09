@@ -1,0 +1,18 @@
+body {
+  font-family: 'Nunito', sans-serif;
+}
+.nav-wrapper {
+  background-color: #B47978;
+}
+
+#logo {
+  width: 25%;
+  margin-top: -20px;
+  margin-left: 5px;
+}
+
+ #create-container, #login-container {
+   margin-top: 20px;
+   background-color: #E6CCBE;
+   border-radius: 10px;
+ }

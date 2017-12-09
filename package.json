@@ -6,10 +6,13 @@
   "dependencies": {
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
+    "firebase": "^4.8.0",
     "nouislider": "^10.1.0",
     "require": "^2.4.20"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "browserify": "^14.5.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

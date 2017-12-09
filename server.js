@@ -16,6 +16,14 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+app.get("/login", (req, res) => {
+  res.render("login");
+});
+
+app.get("/create-account", (req, res) => {
+  res.render("newuser");
+})
+
 app.get("/quiz", (req, res) => {
   res.render("quiz", {
     css: "quiz.css"
