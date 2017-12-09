@@ -10,8 +10,16 @@ app.engine("handlebars", exphbs({
 }));
 app.set("view engine", "handlebars");
 
+app.use(express.static('public'))
+
+app.get("/", (req, res) => {
+  res.render("index");
+});
+
 app.get("/quiz", (req, res) => {
-  res.render("quiz");
+  res.render("quiz", {
+    css: "quiz.css"
+  });
 });
 
 app.get("/account", (req, res) => {
