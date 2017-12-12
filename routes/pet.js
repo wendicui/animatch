@@ -6,22 +6,22 @@ var secret = "041e4b5e005bf0fe3dce1929e5d7813b";
 // module.exports =
 function trial(app){
   //get bread list
- // app.get("api/pets/:animal", function(req,res){
- //    var url = "http://api.petfinder.com/breed.list?format=json&key=";
- //    var animal = req.params.animal;
+ app.get("api/pets/:animal", function(req,res){
+    var url = "http://api.petfinder.com/breed.list?format=json&key=";
+    var animal = req.params.animal;
 
- //    url += apikey;
- //    url += `&animal=${animal}`
- //
- //    console.log("this is the " + url)
- //
- //    request(url, function(error, response, body){
- //      var allResults = JSON.parse(body);
- //      var resultArray = allResults.petfinder.breeds
- //      res.json(resultArray)
- //    })
- //
- // })
+    url += apikey;
+    url += `&animal=${animal}`
+
+    console.log("this is the " + url)
+
+    request(url, function(error, response, body){
+      var allResults = JSON.parse(body);
+      var resultArray = allResults.petfinder.breeds
+      res.json(resultArray)
+    })
+
+ })
 
 //get specified animals
 app.get("api/pets/:animal/:breed/:size/:location/:age/:sex", function(req,res){
@@ -37,34 +37,24 @@ app.get("api/pets/:animal/:breed/:size/:location/:age/:sex", function(req,res){
 //   var sex = param.sex;
 //   //either zipcode or state, this one is required
 //   var location = param.location
-var param = {
 
-}
   url += apikey;
 
 //check whether the input is made from users and add to url
-  for(key in param){
-    if(!param.key= "undefined"){
-      url += `&${key}=param[key]`
+  for(var key in param){
+    if(param[key] != "undefined"){
+      url += `&${key}=${param[key]}`
     }
   }
 
-  //
-  // url = url
-  //       + `&location=${location}`
-  //       + `&animal=${animal}`
-  //       + `&sex=${sex}`
-  //       + `&age=${age}`
-  //       + `&size=${size}`
-  //       + `&breed=${breed}`
-  //       + `&count=25`
+
 console.log(url)
   request(url, function(error, response, body){
     var results = JSON.parse(body)
     var status = results.petfinder.header.status
     console.log(status)
   })
-//})
+})
 
 
 
