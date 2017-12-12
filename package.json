@@ -1,6 +1,7 @@
 {
   "name": "animatch",
   "version": "1.0.0",
+<<<<<<< HEAD
   "description": "AniMatch App",
   "main": "index.js",
   "dependencies": {
@@ -13,14 +14,23 @@
   "devDependencies": {
     "browserify": "^14.5.0"
   },
+=======
+  "description": "matches pet adoption with users",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "devDependencies": {},
+>>>>>>> master
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/geanieblanco/animatch.git"
   },
-  "author": "Geanie Blanco, Wendi Cui, Deen Liang",
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/geanieblanco/animatch/issues"
