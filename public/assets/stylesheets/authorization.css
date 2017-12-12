@@ -1,0 +1,23 @@
+body {
+  font-family: 'Nunito', sans-serif;
+}
+.nav-wrapper {
+  background-color: #B47978;
+}
+
+#logo {
+  width: 25%;
+  margin-top: -20px;
+  margin-left: 5px;
+}
+
+#nav-links {
+  z-index: 2;
+  position: relative;
+}
+
+ #create-container, #login-container {
+   margin-top: 20px;
+   background-color: rgba(230, 204, 190, .4);
+   border-radius: 10px;
+ }

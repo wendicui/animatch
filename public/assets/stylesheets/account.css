@@ -1,0 +1,52 @@
+body {
+  font-family: 'Nunito', sans-serif;
+}
+.nav-wrapper {
+  background-color: #B47978;
+}
+
+#logo {
+  width: 25%;
+  margin-top: -20px;
+  margin-left: 5px;
+}
+
+#nav-links {
+  z-index: 2;
+  position: relative;
+}
+
+#account-sidebar {
+  background-color: #725D68;
+  height:120vh;
+  color: white;
+}
+
+#user-img {
+  width: 95%;
+  border-style: solid;
+  border-color: white;
+  border-width: 2px;
+  margin-top: 10px;
+  margin-left: 5px;
+  border-radius: 10px;
+}
+
+#match-picture {
+  width: 90%;
+  margin-top: 15px;
+  border-radius: 10px;
+}
+
+#match-container {
+  background-color: rgba(230, 204, 190, .4);
+  width: 23%;
+  height: 240px;
+  margin-left: 10px;
+  border-radius: 10px;
+}
+
+#button {
+  background-color: #B47978;
+  margin-top:5px;
+}

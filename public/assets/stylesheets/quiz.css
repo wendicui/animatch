@@ -1,0 +1,31 @@
+body {
+  font-family: 'Nunito', sans-serif;
+}
+.nav-wrapper {
+  background-color: #B47978;
+}
+
+#logo {
+  width: 25%;
+  margin-top: -20px;
+  margin-left: 5px;
+}
+
+#nav-links {
+  z-index: 2;
+  position: relative;
+}
+
+#quiz-title {
+  color: #757575;
+}
+
+
+.helper-text {
+  font-size:12px;
+}
+
+#submit-button {
+  background-color: #B47978;
+  margin-top: -15px;
+}

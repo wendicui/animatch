@@ -1,0 +1,47 @@
+.Site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.Site-content {
+  flex: 1;
+}
+
+body {
+  background-image: url("../images/homepage-background.jpeg");
+  background-size: 100%;
+  font-family: 'Nunito', sans-serif;
+}
+
+.nav-wrapper {
+  background-color: #B47978;
+}
+
+#logo {
+  width: 25%;
+  margin-top: -20px;
+  margin-left: 5px;
+}
+
+#nav-links {
+  z-index: 2;
+  position: relative;
+}
+
+#welcome-banner {
+  margin-top: 200px;
+  background-color: rgba(253,253,255,.4);
+  border-radius: 10px;
+  height:50px;
+  width:60%;
+}
+
+#welcome-banner-text {
+  padding-top: 5px;
+  font-size: 25px;
+}
+
+#start-quiz-button {
+  background-color: #B47978;
+}

@@ -1,3 +1,55 @@
+<<<<<<< HEAD
+const express = require("express");
+
+const app = express();
+const port = process.env.PORT || 3000;
+
+const exphbs = require("express-handlebars");
+
+app.engine("handlebars", exphbs({
+  defaultLayout: "main"
+}));
+app.set("view engine", "handlebars");
+
+app.use(express.static('public'));
+
+app.get("/", (req, res) => {
+  res.render("index");
+});
+
+app.get("/login", (req, res) => {
+  res.render("login");
+});
+
+app.get("/create-account", (req, res) => {
+  res.render("newuser");
+})
+
+app.get("/quiz", (req, res) => {
+  res.render("quiz", {
+    css: "quiz.css"
+  });
+});
+
+app.get("/account", (req, res) => {
+  res.render("account");
+  // if (auth) {
+  //   res.render("account");
+  // } else {
+  //   res.render("login");
+  // }
+});
+
+app.get("/shelters", (req, res) => {
+  res.render("shelter");
+});
+
+app.get("/home", (req, res) => {
+  res.render("index");
+});
+
+app.listen(port);
+=======
 //Dependecies
 var express = require("express");
 var bodyParser = require("body-parser");
@@ -27,6 +79,7 @@ require("./app/routes/html-routes.js")(app);
 app.listen(PORT, function() {
   console.log("App listening on PORT " + PORT);
 });
+<<<<<<< HEAD
 
 //Handlebars Routes
 var exphbs = require("express-handlebars");
@@ -41,3 +94,6 @@ var routes = require("./controllers/pets_controller.js");
 app.use("/", routes);
 app.use("/update", routes);
 app.use("/create", routes);
+=======
+>>>>>>> master
+>>>>>>> geanie-branch
