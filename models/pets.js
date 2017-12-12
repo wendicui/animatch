@@ -2,7 +2,7 @@ module.exports = function(sequelize, DataTypes) {
     var Pets = sequelize.define("Pets", {
       pet_type: DataTypes.STRING,
       breed: {
-        type: DataTypes.BOOLEAN,
+        type: DataTypes.STRING,
         defaultValue: false
       }
     }, {
