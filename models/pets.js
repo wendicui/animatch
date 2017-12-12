@@ -15,3 +15,4 @@ module.exports = function(sequelize, DataTypes) {
     return Pets;
   };
   
+  connection.sync();
