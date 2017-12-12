@@ -11,6 +11,11 @@ body {
   margin-left: 5px;
 }
 
+#nav-links {
+  z-index: 2;
+  position: relative;
+}
+
 #account-sidebar {
   background-color: #725D68;
   height:120vh;
@@ -34,7 +39,7 @@ body {
 }
 
 #match-container {
-  background-color: #E6CCBE;
+  background-color: rgba(230, 204, 190, .4);
   width: 23%;
   height: 240px;
   margin-left: 10px;

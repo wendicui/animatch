@@ -11,8 +11,13 @@ body {
   margin-left: 5px;
 }
 
+#nav-links {
+  z-index: 2;
+  position: relative;
+}
+
  #create-container, #login-container {
    margin-top: 20px;
-   background-color: #E6CCBE;
+   background-color: rgba(230, 204, 190, .4);
    border-radius: 10px;
  }

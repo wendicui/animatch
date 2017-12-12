@@ -11,14 +11,21 @@ body {
   margin-left: 5px;
 }
 
+#nav-links {
+  z-index: 2;
+  position: relative;
+}
+
 #quiz-title {
   color: #757575;
 }
 
-.filled-in {
-  color: #B47978;
-}
 
 .helper-text {
   font-size:12px;
+}
+
+#submit-button {
+  background-color: #B47978;
+  margin-top: -15px;
 }

@@ -23,3 +23,8 @@ firebase.auth().signOut().then(function() {
 
 //Google Login
 firebase.auth().signInWithRedirect(provider);
+
+//Materialize Multiple SELECTOR
+$(document).ready(function() {
+  $('select').material_select();
+});

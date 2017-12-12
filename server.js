@@ -32,6 +32,11 @@ app.get("/quiz", (req, res) => {
 
 app.get("/account", (req, res) => {
   res.render("account");
+  // if (auth) {
+  //   res.render("account");
+  // } else {
+  //   res.render("login");
+  // }
 });
 
 app.get("/shelters", (req, res) => {
