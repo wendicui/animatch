@@ -20,7 +20,7 @@ app.engine("handlebars", handleBar({defaultLayout:"main"}));
 app.set("view engine", "handlebars");
 
 //import routes
-const routes = require("./controllers/pets_controller.js");
+const routes = require("./controllers/pets_controllers.js");
 
 app.use("/", routes);
 
@@ -122,5 +122,3 @@ app.listen(PORT, function(){
 // app.use("/", routes);
 // app.use("/update", routes);
 // app.use("/create", routes);
-
-
