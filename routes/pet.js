@@ -6,25 +6,25 @@ var secret = "041e4b5e005bf0fe3dce1929e5d7813b";
 // module.exports =
 function trial(app){
   //get bread list
- app.get("api/pets/:animal", function(req,res){
-    var url = "http://api.petfinder.com/breed.list?format=json&key=";
-    var animal = req.params.animal;
-
-    url += apikey;
-    url += `&animal=${animal}`
-
-    console.log("this is the " + url)
-
-    request(url, function(error, response, body){
-      var allResults = JSON.parse(body);
-      var resultArray = allResults.petfinder.breeds
-      res.json(resultArray)
-    })
-
- })
+ // app.get("api/pets/:animal", function(req,res){
+ //    var url = "http://api.petfinder.com/breed.list?format=json&key=";
+ //    var animal = req.params.animal;
+ //
+ //    url += apikey;
+ //    url += `&animal=${animal}`
+ //
+ //    console.log("this is the " + url)
+ //
+ //    request(url, function(error, response, body){
+ //      var allResults = JSON.parse(body);
+ //      var resultArray = allResults.petfinder.breeds
+ //      res.json(resultArray)
+ //    })
+ //
+ // })
 
 //get specified animals
-app.get("api/pets/:animal/:breed/:size/:location/:age/:sex", function(req,res){
+//app.get("api/pets/:animal/:breed/:size/:location/:age/:sex", function(req,res){
  var url = "http://api.petfinder.com/pet.find?format=json&key=";
 
 //   var param = req.params
@@ -38,7 +38,15 @@ app.get("api/pets/:animal/:breed/:size/:location/:age/:sex", function(req,res){
 //   var sex = param.sex;
 //   //either zipcode or state, this one is required
 //   var location = param.location
+var param = {
+  animal : "cat",
+  location : "07302",
+  size : "M",
+  breed:"undefined",
+  age:"undefined",
+  sex: "undefined"
 
+}
 
 
   url += apikey;
@@ -54,9 +62,11 @@ console.log(url)
   request(url, function(error, response, body){
     var results = JSON.parse(body)
     var status = results.petfinder.header.status
-    console.log(status)
+    var list = results.petfinder.pets
+    console.log(list);
+
   })
-})
+//})
 
 
 

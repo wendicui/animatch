@@ -98,8 +98,9 @@ router.post('/update', function(req, res){
     request(url, function(error, response, body){
       var results = JSON.parse(body)
       var status = results.petfinder.header.status
-      console.log(status)
-
+      var list = results.petfinder.pets
+      console.log(list);
+      res.json(list);
     })
   })
 
