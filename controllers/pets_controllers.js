@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var queries = require('../models/pets.js');
+var queries = require('../models/');
 
 var request = require('request');
 var apikey = "8c46a80af9f4501e366c726a72006ad8";
@@ -71,7 +72,7 @@ router.post('/update', function(req, res){
      url += apikey;
      url += `&animal=${animal}`
 
-     console.log("this is the " + url)
+     //console.log("this is the " + url)
 
      request(url, function(error, response, body){
        var allResults = JSON.parse(body);
