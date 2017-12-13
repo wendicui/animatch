@@ -26,6 +26,7 @@ function trial(app){
 //get specified animals
 app.get("api/pets/:animal/:breed/:size/:location/:age/:sex", function(req,res){
  var url = "http://api.petfinder.com/pet.find?format=json&key=";
+
 //   var param = req.params
 //   var animal = param.animal
 //   var breed = param.breed;
@@ -46,7 +47,6 @@ app.get("api/pets/:animal/:breed/:size/:location/:age/:sex", function(req,res){
       url += `&${key}=${param[key]}`
     }
   }
-
 
 console.log(url)
   request(url, function(error, response, body){
