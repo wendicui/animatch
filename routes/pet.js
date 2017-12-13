@@ -39,6 +39,8 @@ app.get("api/pets/:animal/:breed/:size/:location/:age/:sex", function(req,res){
 //   //either zipcode or state, this one is required
 //   var location = param.location
 
+
+
   url += apikey;
 
 //check whether the input is made from users and add to url

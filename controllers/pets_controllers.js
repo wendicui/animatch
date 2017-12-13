@@ -38,6 +38,7 @@ router.get("/home", (req, res) => {
   res.render("index");
 });
 
+// database route
 router.get('/', function (req, res) {
     queries.show(function(data){
         //console.log(data);
@@ -61,6 +62,46 @@ router.post('/update', function(req, res){
   });
 });
 
+// api router
+  //get bread list
+  router.get("api/pets/:animal", function(req,res){
+     var url = "http://api.petfinder.com/breed.list?format=json&key=";
+     var animal = req.params.animal;
+
+     url += apikey;
+     url += `&animal=${animal}`
+
+     console.log("this is the " + url)
+
+     request(url, function(error, response, body){
+       var allResults = JSON.parse(body);
+       var resultArray = allResults.petfinder.breeds
+       res.json(resultArray)
+     })
+
+  })
+
+  //return specific animals
+  router.get("api/pets/:animal/:breed/:size/:location/:age/:sex", function(req,res){
+   var url = "http://api.petfinder.com/pet.find?format=json&key=";
+
+    url += apikey;
+
+  //check whether the input is made from users and add to url
+    for(var key in param){
+      if(param[key] != "undefined"){
+        url += `&${key}=${param[key]}`
+      }
+    }
+
+  //console.log(url)
+    request(url, function(error, response, body){
+      var results = JSON.parse(body)
+      var status = results.petfinder.header.status
+      console.log(status)
+
+    })
+  })
 
 
 module.exports = router;
