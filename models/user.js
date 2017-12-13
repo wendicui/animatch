@@ -9,5 +9,4 @@ module.exports = function(sequelize, DataTypes){
     User.hasMany(models.Pets)
   }
   return User
-
 }
