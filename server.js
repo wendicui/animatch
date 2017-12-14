@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+// const express = require("express");
+// const app = express();
+// const port = process.env.PORT || 3000;
+// const exphbs = require("express-handlebars");
+// const bodyParser = require("body-parser");
+// const db = require("./models");
+//
+=======
 const express = require("express");
 const bodyParser = require("body-parser")
 
@@ -24,12 +33,8 @@ const routes = require("./controllers/pets_controllers.js");
 
 app.use("/", routes);
 
-var db = require("./models");
-
-db.sequelize.sync({ force: true }).then(function() {
-  app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
-  });
+app.listen(PORT, function(){
+    console.log("listening Port " + PORT)
 });
 
 // const express = require("express");
@@ -39,16 +44,59 @@ db.sequelize.sync({ force: true }).then(function() {
 
 // const exphbs = require("express-handlebars");
 
+>>>>>>> 20e7e5490f5cd369154886809bee893219fc78c8
 // app.engine("handlebars", exphbs({
 //   defaultLayout: "main"
 // }));
 // app.set("view engine", "handlebars");
+<<<<<<< HEAD
+//
+// app.use(express.static('public'));
+//
+// app.get("/", (req, res) => {
+//   res.render("index");
+// });
+// 
+// app.get("/login", (req, res) => {
+//   res.render("login");
+// });
+//
+// app.get("/create-account", (req, res) => {
+//   res.render("newuser");
+// })
+//
+// app.get("/quiz", (req, res) => {
+//   res.render("quiz", {
+//     css: "quiz.css"
+//   });
+// });
+//
+// app.get("/account", (req, res) => {
+//   res.render("account");
+//   // if (auth) {
+//   //   res.render("account");
+//   // } else {
+//   //   res.render("login");
+//   // }
+// });
+//
+// app.get("/shelters", (req, res) => {
+//   res.render("shelter");
+// });
+//
+// app.get("/home", (req, res) => {
+//   res.render("index");
+// });
+//
+// app.listen(port);
+=======
 
 // app.use(express.static('public'));
 
 // app.get("/", (req, res) => {
 //   res.render("index");
 // });
+>>>>>>> 20e7e5490f5cd369154886809bee893219fc78c8
 
 // app.get("/login", (req, res) => {
 //   res.render("login");
@@ -64,6 +112,11 @@ db.sequelize.sync({ force: true }).then(function() {
 //   });
 // });
 
+<<<<<<< HEAD
+//Express Routes
+require("/routes/pet.js")(app);
+require("/routes/html-routes.js")(app);
+=======
 // app.get("/account", (req, res) => {
 //   res.render("account");
 //   // if (auth) {
@@ -72,11 +125,16 @@ db.sequelize.sync({ force: true }).then(function() {
 //   //   res.render("login");
 //   // }
 // });
+>>>>>>> 20e7e5490f5cd369154886809bee893219fc78c8
 
 // app.get("/shelters", (req, res) => {
 //   res.render("shelter");
 // });
 
+<<<<<<< HEAD
+// //Handlebars Routes
+//
+=======
 // app.get("/home", (req, res) => {
 //   res.render("index");
 // });
@@ -116,13 +174,23 @@ db.sequelize.sync({ force: true }).then(function() {
 // //Handlebars Routes
 // var exphbs = require("express-handlebars");
 
+>>>>>>> 20e7e5490f5cd369154886809bee893219fc78c8
 // app.engine("handlebars", exphbs({
 //   defaultLayout: "main"
 // }));
 // app.set("view engine", "handlebars");
+<<<<<<< HEAD
+//
+// var routes = require("./controllers/pets_controller.js");
+//
+// app.use("/", routes);
+// app.use("/update", routes);
+// app.use("/create", routes);
+=======
 
 // var routes = require("./controllers/pets_controller.js");
 
 // app.use("/", routes);
 // app.use("/update", routes);
 // app.use("/create", routes);
+>>>>>>> 20e7e5490f5cd369154886809bee893219fc78c8

@@ -1,40 +1,60 @@
-$('document').ready(funtion({
-    // Initialize Firebase
-    var firebase = require("firebase/app");
-    require("firebase/auth");
-    require("firebase/database");
+$(document).ready(function() {
+  console.log("Connected");
 
-    //Google Connect
-    var provider = new firebase.auth.GoogleAuthProvider();
+  var userFirstName;
+  var userLastName;
+  var userEmail;
+  var userPassword;
 
-    //Firebase Login
-    firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-      // Handle Errors here.
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDH4QI1MF7gBkE9Tt9vn6rp3JXavnLGBIs",
+    authDomain: "animatch-7be82.firebaseapp.com",
+    databaseURL: "https://animatch-7be82.firebaseio.com",
+    projectId: "animatch-7be82",
+    storageBucket: "animatch-7be82.appspot.com",
+    messagingSenderId: "250916829970"
+  };
+  firebase.initializeApp(config);
+
+
+  //create user
+  $('#signup-button').on("click", function() {
+    event.preventDefault();
+    console.log("Submitted");
+    var userFirstName = $("#first_name").val();
+    var userLastName = $("#last_name").val();
+    var userEmail = $("#user-email").val();
+    var userPassword = $("#user-password").val();
+    console.log(userFirstName);
+    console.log(userLastName);
+    console.log(userEmail);
+
+    firebase.auth().createUserWithEmailAndPassword(userEmail, userPassword).catch(function(error) {
       var errorCode = error.code;
       var errorMessage = error.message;
-      // ...
+      if (error) {
+        console.log(errorCode + errorMessage);
+      } else
+        console.log("User Submitted");
     });
+    window.location.replace("/quiz");
+  });
 
-    //Firebase Logout
-    firebase.auth().signOut().then(function() {
-      // Sign-out successful.
-    }).catch(function(error) {
-      // An error happened.
+  //login user
+  $('#login-button').on("click", function() {
+    event.preventDefault();
+    console.log("Submitted");
+    var userEmail = $("#user-email").val();
+    var userPassword = $("#user-password").val();
+    firebase.auth().signInWithEmailAndPassword(userEmail, userPassword).catch(function(error) {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      if (errorCode) {
+        console.log(errorCode + errorMessage);
+      } else
+        console.log("User Login Successful");
     });
-
-    //Google Login
-    firebase.auth().signInWithRedirect(provider);
-
-    //  Materialize Multiple SELECTOR
-    $(document).ready(function() {
-      $('select').material_select();
-    });
-
-    // GET INFO
-    var animalType = $("input[name='pet-search']:checked").val();
-    var currentPet = $("input[name='pet-group']:checked").val();
-    var children = $("input[name='child-group']:checked").val();
-
-    console.log(animalType);
-  };
+    window.location.replace("/account")
+  });
 });

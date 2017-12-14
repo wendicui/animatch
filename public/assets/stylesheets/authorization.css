@@ -21,3 +21,8 @@ body {
    background-color: rgba(230, 204, 190, .4);
    border-radius: 10px;
  }
+
+ #submit-button {
+   background-color: #B47978;
+   margin-top: -15px;
+ }
