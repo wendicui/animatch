@@ -1,56 +1,25 @@
 module.exports = function(sequelize, DataTypes) {
 
-  var Pets = sequelize.define("Pets", {
-    pet_type: DataTypes.STRING,
-    breed: {
-      type: DataTypes.STRING,
-      defaultValue: false
-    }
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
-  });
-  return Pets;
-};
-
-// connection.sync();
-
-    // var Pets = sequelize.define("Pets", {
-    //   pet_type: DataTypes.STRING,
-    //   breed: {
-    //     type: DataTypes.STRING,
-    //     defaultValue: false
-    //   }
-    // }, {
-    //   classMethods: {
-    //     associate: function(models) {
-    //       // associations can be defined here
-    //     }
-    //   }
-    // });
-    // return Pets;
-
-  var Pets = sequelize.define("Pets", {
+  var Pet = sequelize.define("Pet", {
       pet_type: DataTypes.STRING,
       breed: {
         type: DataTypes.STRING,
         defaultValue: false
-      }
+      },
+      petFinderId: DataTypes.INTEGER
     })
 
-    Pets.associate = function(models){
+    Pet.associate = function(models){
       //link with user
-      Pets.belongsTo(models.User,{
+      Pet.belongsTo(models.User,{
         foreignKey:{
           allowNull: false
         }
       })
     }
 
-    return Pets;
+    return Pet;
   };
+
 
   //connection.sync();
