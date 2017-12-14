@@ -6,6 +6,8 @@ module.exports = function(sequelize, DataTypes){
     activityLevel: DataTypes.STRING,
     children: DataTypes.BOOLEAN,
     currentPet: DataTypes.STRING
+  },{
+    timestamps:false
   });
 
   User.associate = function (models){

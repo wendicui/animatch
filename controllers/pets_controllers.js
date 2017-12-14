@@ -71,7 +71,7 @@ router.get('/', function (req, res) {
    var url = "http://api.petfinder.com/pet.find?format=json&key=";
 
     url += apikey;
-
+    url += '&count=6'
     //check whether the input is made from users and add to url
     for(var key in param){
       if(param[key] != "undefined"){
@@ -88,7 +88,17 @@ router.get('/', function (req, res) {
     })
   })
 
+//get animal infor by id
+  router.get("/api/animal/:id",function(req,res){
+    var url = "http://api.petfinder.com/pet.get?format=json&key=";
+    var id = req.parmas.id
+     url += apikey;
+     url += `&id=${id}`
 
+     request(url, function(err, response, body){
+       res.json(JSON.parse(body))
+     })
+  })
 //for user information
 
   router.get("/api/user/:id", function(req,res){
@@ -100,17 +110,19 @@ router.get('/', function (req, res) {
       },
       include:[queries.Pet]
     }).then(function(data){
-      var allAnimals = data.pets;
-      res.json(allAnimals);
+    //  var allAnimals = data.dataValues.Pets;
+
+      console.log(data.name)
+      res.json(data);
 
     })
   })
 
   //create new user file
-  router.put("/api/users", function(req,res{
+  router.put("/api/users", function(req,res) {
     queries.User.create(req.body).then(function(data){
       res.json(data);
     })
-  }))
+  })
 
 module.exports = router;

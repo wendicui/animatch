@@ -7,6 +7,8 @@ module.exports = function(sequelize, DataTypes) {
         defaultValue: false
       },
       petFinderId: DataTypes.INTEGER
+    },{
+      timestamps:false
     })
 
     Pet.associate = function(models){
