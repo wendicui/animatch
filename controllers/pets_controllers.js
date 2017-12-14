@@ -65,7 +65,7 @@ router.post('/update', function(req, res){
 
 // api router
   //get bread list
-  router.get("api/pets/:animal", function(req,res){
+  router.get("/api/pets/:animal", function(req,res){
      var url = "http://api.petfinder.com/breed.list?format=json&key=";
      var animal = req.params.animal;
 
@@ -83,7 +83,7 @@ router.post('/update', function(req, res){
   })
 
   //return specific animals
-  router.get("api/pets/:animal/:breed/:size/:location/:age/:sex", function(req,res){
+  router.get("/api/pets/:animal/:breed/:size/:location/:age/:sex", function(req,res){
    var url = "http://api.petfinder.com/pet.find?format=json&key=";
 
     url += apikey;
@@ -107,12 +107,18 @@ router.post('/update', function(req, res){
 
 
 //for user information
-  router.get("api/user/:id", function(req,res){
+  router.get("/api/user/:id", function(req,res){
     //list all the favorate animals
-    queries.User.findAll({
+    console.log("ere")
+    queries.User.findOne({
+      where:{
+        id:req.params.id
+      },
       include:[queries.Pet]
     }).then(function(data){
-      res.json(data)
+      console.log(data);
+      res.json(data);
+
     })
   })
 
