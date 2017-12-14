@@ -40,11 +40,9 @@ router.get("/home", (req, res) => {
   res.render("index");
 });
 
-// database route
+
 router.get('/', function (req, res) {
-
-        res.render('index');
-
+    res.render('index');
 });
 
 
@@ -74,14 +72,13 @@ router.get('/', function (req, res) {
 
     url += apikey;
 
-  //check whether the input is made from users and add to url
+    //check whether the input is made from users and add to url
     for(var key in param){
       if(param[key] != "undefined"){
         url += `&${key}=${param[key]}`
       }
     }
 
-  //console.log(url)
     request(url, function(error, response, body){
       var results = JSON.parse(body)
       var status = results.petfinder.header.status
@@ -93,6 +90,7 @@ router.get('/', function (req, res) {
 
 
 //for user information
+
   router.get("/api/user/:id", function(req,res){
     //list all the favorate animals
     console.log("ere")
@@ -102,10 +100,17 @@ router.get('/', function (req, res) {
       },
       include:[queries.Pet]
     }).then(function(data){
-      console.log(data);
-      res.json(data);
+      var allAnimals = data.pets;
+      res.json(allAnimals);
 
     })
   })
+
+  //create new user file
+  router.put("/api/users", function(req,res{
+    queries.User.create(req.body).then(function(data){
+      res.json(data);
+    })
+  }))
 
 module.exports = router;
