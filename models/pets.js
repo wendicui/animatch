@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-<<<<<<< HEAD
+
   var Pets = sequelize.define("Pets", {
     pet_type: DataTypes.STRING,
     breed: {
@@ -17,7 +17,7 @@ module.exports = function(sequelize, DataTypes) {
 };
 
 // connection.sync();
-=======
+
     // var Pets = sequelize.define("Pets", {
     //   pet_type: DataTypes.STRING,
     //   breed: {
@@ -54,4 +54,3 @@ module.exports = function(sequelize, DataTypes) {
   };
 
   //connection.sync();
->>>>>>> 20e7e5490f5cd369154886809bee893219fc78c8
