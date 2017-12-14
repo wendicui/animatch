@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var queries = require('../models/pets.js');
-var queries = require('../models/');
+//var queries = require('../models/pets.js');
+var queries = require("../models");
 
 var request = require('request');
 var apikey = "8c46a80af9f4501e366c726a72006ad8";
@@ -105,5 +105,15 @@ router.post('/update', function(req, res){
     })
   })
 
+
+//for user information
+  router.get("api/user/:id", function(req,res){
+    //list all the favorate animals
+    queries.User.findAll({
+      include:[queries.Pet]
+    }).then(function(data){
+      res.json(data)
+    })
+  })
 
 module.exports = router;
