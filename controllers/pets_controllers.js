@@ -42,9 +42,9 @@ router.get("/home", (req, res) => {
 
 // database route
 router.get('/', function (req, res) {
-    
+
         res.render('index', {});
-   
+
 });
 
 
@@ -109,5 +109,3 @@ router.get('/', function (req, res) {
   })
 
 module.exports = router;
-
-
