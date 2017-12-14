@@ -43,7 +43,7 @@ router.get("/home", (req, res) => {
 // database route
 router.get('/', function (req, res) {
 
-        res.render('index', {});
+        res.render('index');
 
 });
 

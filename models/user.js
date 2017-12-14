@@ -1,7 +1,11 @@
 module.exports = function(sequelize, DataTypes){
   var User = sequelize.define("User",{
     name: DataTypes.STRING,
-    zipcode: DataTypes.INTEGER
+    zipcode: DataTypes.INTEGER,
+    homeType: DataTypes.STRING,
+    activityLevel: DataTypes.STRING,
+    children: DataTypes.BOOLEAN,
+    currentPet: DataTypes.STRING
   });
 
   User.associate = function (models){
