@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 3000;
@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
 
 app.get("/login", (req, res) => {
   res.render("login");
-=======
+
 var express = require('express');
 var router = express.Router();
 var queries = require('../models/pets.js');
@@ -77,7 +77,7 @@ router.post('/create', function (req, res) {
     queries.add(req.body.item, function(data) {
         res.redirect('/');
     });
->>>>>>> 20e7e5490f5cd369154886809bee893219fc78c8
+
 });
 
 app.get("/create-account", (req, res) => {
@@ -90,7 +90,7 @@ app.get("/quiz", (req, res) => {
   });
 });
 
-<<<<<<< HEAD
+
 app.get("/account", (req, res) => {
   res.render("account");
   // if (auth) {
@@ -138,7 +138,7 @@ app.listen(port);
 // });
 
 module.exports = router;
-=======
+
 // api router
   //get bread list
   router.get("api/pets/:animal", function(req,res){
@@ -183,4 +183,4 @@ module.exports = router;
 
 
 module.exports = router;
->>>>>>> 20e7e5490f5cd369154886809bee893219fc78c8
+
