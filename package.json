@@ -7,8 +7,12 @@
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
     "firebase": "^4.8.0",
+    "materialize-css": "^1.0.0-alpha.2",
+    "mysql2": "^1.5.1",
     "nouislider": "^10.1.0",
-    "require": "^2.4.20"
+    "require": "^2.4.20",
+    "sequelize": "^4.28.0",
+    "materialize-css@next": "^1.0.0"
   },
   "devDependencies": {
     "browserify": "^14.5.0"

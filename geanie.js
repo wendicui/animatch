@@ -3,7 +3,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 const exphbs = require("express-handlebars");
 const bodyParser = require("body-parser");
-const db = require("../models");
+const db = require("./models");
 
 app.engine("handlebars", exphbs({
   defaultLayout: "main"
@@ -48,32 +48,3 @@ app.get("/home", (req, res) => {
 });
 
 app.listen(port);
-
-// var express = require('express');
-// var router = express.Router();
-// var queries = require('../models/pets.js');
-//
-// router.get('/', function (req, res) {
-//     queries.show(function(data){
-//         //console.log(data);
-//         var Data = {
-//             petsData: data
-//         }
-//         //res.render('index', {data : Data});
-//         res.render('index', Data);
-//     });
-// });
-//
-// router.post('/create', function (req, res) {
-//     queries.add(req.body.item, function(data) {
-//         res.redirect('/');
-//     });
-// });
-//
-// router.post('/update', function(req, res){
-//   queries.add(req.body.id, function(result){
-//     res.redirect('/');
-//   });
-// });
-
-module.exports = router;
