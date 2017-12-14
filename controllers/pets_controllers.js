@@ -40,11 +40,9 @@ router.get("/home", (req, res) => {
   res.render("index");
 });
 
-// database route
+
 router.get('/', function (req, res) {
-
-        res.render('index', {});
-
+    res.render('index');
 });
 
 
@@ -73,15 +71,14 @@ router.get('/', function (req, res) {
    var url = "http://api.petfinder.com/pet.find?format=json&key=";
 
     url += apikey;
-
-  //check whether the input is made from users and add to url
+    url += '&count=6'
+    //check whether the input is made from users and add to url
     for(var key in param){
       if(param[key] != "undefined"){
         url += `&${key}=${param[key]}`
       }
     }
 
-  //console.log(url)
     request(url, function(error, response, body){
       var results = JSON.parse(body)
       var status = results.petfinder.header.status
@@ -91,8 +88,19 @@ router.get('/', function (req, res) {
     })
   })
 
+//get animal infor by id
+  router.get("/api/animal/:id",function(req,res){
+    var url = "http://api.petfinder.com/pet.get?format=json&key=";
+    var id = req.parmas.id
+     url += apikey;
+     url += `&id=${id}`
 
+     request(url, function(err, response, body){
+       res.json(JSON.parse(body))
+     })
+  })
 //for user information
+
   router.get("/api/user/:id", function(req,res){
     //list all the favorate animals
     console.log("ere")
@@ -102,9 +110,18 @@ router.get('/', function (req, res) {
       },
       include:[queries.Pet]
     }).then(function(data){
-      console.log(data);
+    //  var allAnimals = data.dataValues.Pets;
+
+      console.log(data.name)
       res.json(data);
 
+    })
+  })
+
+  //create new user file
+  router.put("/api/users", function(req,res) {
+    queries.User.create(req.body).then(function(data){
+      res.json(data);
     })
   })
 
