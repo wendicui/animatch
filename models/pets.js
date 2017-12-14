@@ -14,24 +14,25 @@ module.exports = function(sequelize, DataTypes) {
     // });
     // return Pets;
 
-  var Pets = sequelize.define("Pets", {
+  var Pet = sequelize.define("Pet", {
       pet_type: DataTypes.STRING,
       breed: {
         type: DataTypes.STRING,
         defaultValue: false
-      }
+      },
+      petFinderId: DataTypes.INTEGER
     })
 
-    Pets.associate = function(models){
+    Pet.associate = function(models){
       //link with user
-      Pets.belongsTo(models.User,{
+      Pet.belongsTo(models.User,{
         foreignKey:{
           allowNull: false
         }
       })
     }
 
-    return Pets;
+    return Pet;
   };
 
   //connection.sync();
