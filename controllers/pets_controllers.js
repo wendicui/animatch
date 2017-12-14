@@ -61,34 +61,12 @@ router.get("/home", (req, res) => {
   res.render("index");
 });
 
-// database route
-// router.get('/', function (req, res) {
-//     queries.show(function(data){
-//         //console.log(data);
-//         var Data = {
-//             petsData: data
-//         }
-//         //res.render('index', {data : Data});
-//         res.render('index', Data);
-//     });
-// });
 
-router.post('/create', function (req, res) {
-    queries.add(req.body.item, function(data) {
-        res.redirect('/');
-    });
-
+// // database route
+router.get('/', function (req, res) {
+    res.render('index', {});
 });
 
-app.get("/create-account", (req, res) => {
-  res.render("newuser");
-})
-
-app.get("/quiz", (req, res) => {
-  res.render("quiz", {
-    css: "quiz.css"
-  });
-});
 
 
 app.get("/account", (req, res) => {
