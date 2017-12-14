@@ -39,29 +39,11 @@ router.get("/home", (req, res) => {
   res.render("index");
 });
 
-// database route
+// // database route
 router.get('/', function (req, res) {
-    queries.show(function(data){
-        //console.log(data);
-        var Data = {
-            petsData: data
-        }
-        //res.render('index', {data : Data});
-        res.render('index', Data);
-    });
+    res.render('index', {});
 });
 
-router.post('/create', function (req, res) {
-    queries.add(req.body.item, function(data) {
-        res.redirect('/');
-    });
-});
-
-router.post('/update', function(req, res){
-  queries.add(req.body.id, function(result){
-    res.redirect('/');
-  });
-});
 
 // api router
   //get bread list
