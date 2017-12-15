@@ -10,7 +10,9 @@ module.exports = function(sequelize, DataTypes) {
       age: DataTypes.INTEGER,
       media:DataTypes.STRING,
       size:DataTypes.STRING,
-      name: DataTypes.STRING
+      name: DataTypes.STRING,
+      sex: DataTypes.STRING,
+      description: DataTypes.TEXT
     },{
       timestamps:false
     })
