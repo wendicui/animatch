@@ -96,7 +96,9 @@ router.get('/', function (req, res) {
      url += `&id=${id}`
 
      request(url, function(err, response, body){
-       res.json(JSON.parse(body))
+       var results = JSON.parse(body)
+       var animal = results.petfinder.pets
+       res.json(animal)
      })
   })
 //for user information
