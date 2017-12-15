@@ -1,6 +1,7 @@
 
 var express = require('express');
 var router = express.Router();
+var parser = express.json();
 //var queries = require('../models/pets.js');
 var queries = require("../models");
 
@@ -88,7 +89,7 @@ router.get('/', function (req, res) {
     })
   })
 
-//get animal infor by id
+// //get animal infor by id
   router.get("/api/animal/:id",function(req,res){
     var url = "http://api.petfinder.com/pet.get?format=json&key=";
     var id = req.parmas.id
@@ -101,6 +102,25 @@ router.get('/', function (req, res) {
        res.json(animal)
      })
   })
+
+// function that grab animal infor by id
+// function getAnimalbyId(idPassedIn, Obj, i){
+//   var url = "http://api.petfinder.com/pet.get?format=json&key=";
+//       var id = idPassedIn;
+//        url += apikey;
+//        url += `&id=${id}`
+//        //console.log(url)
+//       request(url, function(err, response, body){
+//          var results = JSON.parse(body)
+//          var animal = results.petfinder.pet
+//          //add this animal as the ith attribute of the passed in  Obj, should use iteration
+//          //create newkey
+//          var newkey = i + "th"
+//          Obj[newkey] = animal;
+//
+//        })
+// }
+
 //for user information
 
   router.get("/api/user/:id", function(req,res){
@@ -112,9 +132,16 @@ router.get('/', function (req, res) {
       },
       include:[queries.Pet]
     }).then(function(data){
-    //  var allAnimals = data.dataValues.Pets;
-
-      console.log(data.name)
+      //create an object to hold all the data info
+    // var animalList = {}
+    // var allAnimals = data.dataValues.Pets;
+    // for (var i = 0; i < allAnimals.length; i++) {
+    //   var id = allAnimals[i].dataValues.petFinderId
+    //   //add the returned animal infor to the object
+    //    getAnimalbyId(id, animalList,i)
+    // }
+    //   console.log("_____________________________")
+    //   console.log(animalList)
       res.json(data);
 
     })
@@ -123,6 +150,14 @@ router.get('/', function (req, res) {
   //create new user file
   router.put("/api/users", function(req,res) {
     queries.User.create(req.body).then(function(data){
+      res.json(data);
+    })
+  })
+
+  //create new animal
+
+  router.put("/api/animals", function(req,res) {
+    queries.Pet.create(req.body).then(function(data){
       res.json(data);
     })
   })
