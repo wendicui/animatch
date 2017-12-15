@@ -1,3 +1,5 @@
+var router = require("controllers/pets_controllers.js");
+
 $(document).ready(function() {
   console.log("Connected");
 
@@ -22,22 +24,21 @@ $(document).ready(function() {
   $('#submit-button').on("click", function() {
     event.preventDefault();
     console.log("Submitted");
-    var animalType = $("input[type=radio][name=animal-group]:checked").val();
-    var currentPet = $("input[type=checkbox][name=pet-group]:checked").val();
-    var children = $("input[type=checkbox][name=child-group]:checked").val();
+    var animal = $("input[type=radio][name=animal-group]:checked").val();
+    var size = $("input[type=checkbox][name=size-group]:checked").val();
+    var age = $("input[type=checkbox][name=age-group]:checked").val();
     var homeType = $("input[type=radio][name=home-group]:checked").val();
     var activityLevel = $("input[type=radio][name=activity-level]:checked").val();
     console.log(animalType);
-    console.log(currentPet);
-    console.log(children);
     var quizInfo = {
       animal: animalType,
       pets: currentPet,
       children: children,
-      home - type: homeType,
-      activity - level: activityLevel,
+      hometype: homeType,
+      activitylevel: activityLevel,
     }
     userData.push(quizInfo);
-    window.location.replace("/account");
+    window.location.replace("/api/pets/:animal/:size/:location/:age/:sex");
+    window.location.replace("/account")
   });
 });
