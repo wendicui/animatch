@@ -7,7 +7,7 @@ var queries = require("../models");
 var request = require('request');
 var apikey = "8c46a80af9f4501e366c726a72006ad8";
 var secret = "041e4b5e005bf0fe3dce1929e5d7813b";
-var $ = require("jquery");
+// var $ = require("jquery");
 
 //html render
 router.get("/login", (req, res) => {
@@ -101,37 +101,8 @@ router.get("/api/animal/:id", function(req, res) {
     var animal = results.petfinder.pets
     res.json(animal)
   })
-  $("$match-container").append(results);
 });
 
-//
-$('#submit-button').on("click", function() {
-  event.preventDefault();
-  console.log("Submitted");
-  var animal = $("input[type=radio][name=animal-group]:checked").val();
-  var size = $("input[type=checkbox][name=size-group]:checked").val();
-  var age = $("input[type=checkbox][name=age-group]:checked").val();
-  var homeType = $("input[type=radio][name=home-group]:checked").val();
-  var activityLevel = $("input[type=radio][name=activity-level]:checked").val();
-  console.log(animalType);
-  var quizInfo = {
-    animal: animalType,
-    pets: currentPet,
-    children: children,
-    hometype: homeType,
-    activitylevel: activityLevel,
-  }
-  userData.push(quizInfo);
-  window.location.replace("/api/pets/:animal/:size/:location/:age/:sex");
-  window.location.replace("/account")
-  router.get("/api/pets/:animal/:size/:location/:age/:sex", function(req, res) {
-    animal = $("input[type=radio][name=animal-group]:checked").val();
-    size = $("input[type=checkbox][name=size-group]:checked").val();
-    age = $("input[type=checkbox][name=age-group]:checked").val();
-    console.log(res);
-    $("$match-container").append(results);
-  });
-});
 
 // function that grab animal infor by id
 // function getAnimalbyId(idPassedIn, Obj, i){

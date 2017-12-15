@@ -1,7 +1,5 @@
-var router = require("controllers/pets_controllers.js");
-
 $(document).ready(function() {
-  console.log("Connected");
+  console.log("Quiz-Connected");
 
   var animalType;
   var currentPet;
@@ -24,14 +22,14 @@ $(document).ready(function() {
   $('#submit-button').on("click", function() {
     event.preventDefault();
     console.log("Submitted");
-    var animal = $("input[type=radio][name=animal-group]:checked").val();
-    var size = $("input[type=checkbox][name=size-group]:checked").val();
-    var age = $("input[type=checkbox][name=age-group]:checked").val();
-    var homeType = $("input[type=radio][name=home-group]:checked").val();
-    var activityLevel = $("input[type=radio][name=activity-level]:checked").val();
-    console.log(animalType);
+    animal = $("input[type=radio][name=animal-group]:checked").val();
+    size = $("input[type=checkbox][name=size-group]:checked").val();
+    age = $("input[type=checkbox][name=age-group]:checked").val();
+    homeType = $("input[type=radio][name=home-group]:checked").val();
+    activityLevel = $("input[type=radio][name=activity-level]:checked").val();
+
     var quizInfo = {
-      animal: animalType,
+      animal: animal,
       pets: currentPet,
       children: children,
       hometype: homeType,
@@ -39,6 +37,16 @@ $(document).ready(function() {
     }
     userData.push(quizInfo);
     window.location.replace("/api/pets/:animal/:size/:location/:age/:sex");
+
+    $.get("/api/pets/:animal/:size/:location/:age/:sex", function(req, res) {
+      animal = $("input[type=radio][name=animal-group]:checked").val();
+      size = $("input[type=checkbox][name=size-group]:checked").val();
+      age = $("input[type=checkbox][name=age-group]:checked").val();
+
+      console.log(res);
+      $("$match-container").append(results);
+    });
     window.location.replace("/account")
   });
+
 });
