@@ -1,12 +1,16 @@
 module.exports = function(sequelize, DataTypes) {
 
   var Pet = sequelize.define("Pet", {
-      pet_type: DataTypes.STRING,
+      animal: DataTypes.STRING,
       breed: {
         type: DataTypes.STRING,
         defaultValue: false
       },
-      petFinderId: DataTypes.INTEGER
+      petFinderId: DataTypes.INTEGER,
+      age: DataTypes.INTEGER,
+      media:DataTypes.STRING,
+      size:DataTypes.STRING,
+      name: DataTypes.STRING
     },{
       timestamps:false
     })
