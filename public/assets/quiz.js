@@ -1,4 +1,8 @@
+//import user data
 
+var firstname = localStorage.getItem('firstname')
+var lastname = localStorage.getItem('lastname')
+var userId
 
 //api variables
 var size , age, breed, age, sex= "undefined";
@@ -7,6 +11,7 @@ var size , age, breed, age, sex= "undefined";
 
 $(document).ready(function() {
   console.log("Quiz-Connected");
+  console.log(firstname);
 
   var animalType;
   var currentPet;
@@ -29,6 +34,7 @@ $(document).ready(function() {
   $('#submit-button').on("click", function() {
     event.preventDefault();
     console.log("Submitted");
+
 
     var animalType = $("input[type=radio][name=animal-group]:checked").val();
     var currentPet = $("input[type=checkbox][name=pet-group]:checked").val();
@@ -57,6 +63,7 @@ $(document).ready(function() {
 
 // create survey object for user
     var survey = {
+      name: `${firstname} ${lastname}`,
       zipcode: location,
       homeType:homeType,
       activityLevel:activityLevel,
@@ -71,8 +78,11 @@ $(document).ready(function() {
 
 //add user survey to database
 function addUserData(data){
-  $.post("/api/users", data, function(){
+  $.post("/api/users", data, function(info){
     console.log("survey added")
+    console.log(info)
+    //get user id incase to add favorate animals to database
+    userId = info.id
   })
 }
 

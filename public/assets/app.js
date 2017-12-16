@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
   console.log("Connected");
 
@@ -31,6 +32,9 @@ $(document).ready(function() {
     console.log(userFirstName);
     console.log(userLastName);
     console.log(userEmail);
+    localStorage.setItem('firstname',userFirstName)
+    localStorage.setItem('lastname',userLastName)
+
 
     firebase.auth().createUserWithEmailAndPassword(userEmail, userPassword).catch(function(error) {
       var errorCode = error.code;
@@ -60,4 +64,6 @@ $(document).ready(function() {
     });
     window.location.replace("/account")
   });
+
+
 });
