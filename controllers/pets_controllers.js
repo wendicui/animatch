@@ -153,7 +153,7 @@ router.get("/api/user/:id", function(req, res) {
 router.get("/api/user/email/:email", function(req, res) {
   //list all the favorate animals
 
-  queries.User.findOne({
+  queries.User.findAll({
     where: {
       email: req.params.email
     },
