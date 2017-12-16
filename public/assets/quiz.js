@@ -12,6 +12,7 @@ $(document).ready(function() {
   var firstname = localStorage.getItem('firstname')
   var lastname = localStorage.getItem('lastname')
   var userId
+  var userEmail = localStorage.getItem("email")
 
 
   console.log("Quiz-Connected");
@@ -72,7 +73,8 @@ $(document).ready(function() {
       homeType:homeType,
       activityLevel:activityLevel,
       children:children,
-      currentPet:currentPet
+      currentPet:currentPet,
+      email:userEmail
     }
 
     addUserData(survey,url)
@@ -86,6 +88,7 @@ function addUserData(data,url){
     console.log("survey added")
     //console.log(info)
     //get user id incase to add favorate animals to database
+    userEmail = info.email
     userId = info.id
     localStorage.setItem("id",userId)
     console.log(userId)
@@ -98,7 +101,7 @@ function addUserData(data,url){
 function getInfo(url){
   $.get(url,function(data){
     console.log("working")
-  //  console.log(data)
+    console.log(data)
   //  console.log(data.pet[0].media.photos.photo[0])
     addData(data)
     //display(data)
@@ -113,11 +116,12 @@ function addData(data){
     //create animal infor
     console.log('this is '+ userId)
     var newAnimal = {
+      name:animal.name.$t,
       animal:animal.animal.$t,
       breed:animal.breeds.breed.$t,
       petFinderId:animal.id.$t,
-      age:animal.id.$t,
-    //  media:animal.media.photos.photo[0].$t,
+      age:animal.age.$t,
+      //media:animal.media.photos.photo[0].$t,
       size:animal.size.$t,
       sex:animal.sex.$t,
       description: animal.description.$t,
@@ -135,10 +139,10 @@ function addData(data){
 }
 
 
-// display data to show search result
-function display(data){
-
-}
+// // display data to show search result
+// function display(data){
+//
+// }
 
 });
 // =======
