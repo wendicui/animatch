@@ -163,6 +163,7 @@ router.get("/api/user/:id", function(req, res) {
   router.post("/api/animals", function(req,res) {
     console.log(req.body)
     queries.Pet.create(req.body).then(function(data){
+      console.log("animal added")
       res.json(data);
     })
 })

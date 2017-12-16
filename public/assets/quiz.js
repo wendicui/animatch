@@ -98,7 +98,7 @@ function getInfo(url){
     console.log("working")
   //  console.log(data)
   //  console.log(data.pet[0].media.photos.photo[0])
-  //  addData(data)
+    addData(data)
     //display(data)
   })
 }
@@ -122,7 +122,7 @@ function addData(data){
       UserId: parseInt(userId)
     }
     //add animal to database
-    $.post("/api/animals", data, function(info){
+    $.post("/api/animals", newAnimal, function(info){
       console.log("animal added")
       console.log(info)
     })
