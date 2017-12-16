@@ -8,6 +8,11 @@ $(document).ready(function() {
   console.log(email)
   getAnimals(email)
 
+  $(".button").on("click", function(){
+    console.log("click")
+    window.location.href = "/quiz"
+  })
+
 //get all the matched data for this user
   function getAnimals(useremail){
 
