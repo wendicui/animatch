@@ -7,7 +7,7 @@ module.exports = function(sequelize, DataTypes) {
         defaultValue: false
       },
       petFinderId: DataTypes.INTEGER,
-      age: DataTypes.INTEGER,
+      age: DataTypes.STRING,
       media:DataTypes.STRING,
       size:DataTypes.STRING,
       name: DataTypes.STRING,

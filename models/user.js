@@ -5,7 +5,8 @@ module.exports = function(sequelize, DataTypes){
     homeType: DataTypes.STRING,
     activityLevel: DataTypes.STRING,
     children: DataTypes.STRING,
-    currentPet: DataTypes.STRING
+    currentPet: DataTypes.STRING,
+    email:DataTypes.STRING
   },{
     timestamps:false
   });

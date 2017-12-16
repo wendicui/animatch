@@ -34,6 +34,7 @@ $(document).ready(function() {
     console.log(userEmail);
     localStorage.setItem('firstname',userFirstName)
     localStorage.setItem('lastname',userLastName)
+    localStorage.setItem('email',userEmail)
 
 
     firebase.auth().createUserWithEmailAndPassword(userEmail, userPassword).catch(function(error) {
@@ -54,6 +55,8 @@ $(document).ready(function() {
     console.log("Submitted");
     var userEmail = $("#user-email").val();
     var userPassword = $("#user-password").val();
+    localStorage.setItem('email',userEmail);
+    //check firebase
     firebase.auth().signInWithEmailAndPassword(userEmail, userPassword).catch(function(error) {
       var errorCode = error.code;
       var errorMessage = error.message;
@@ -62,6 +65,7 @@ $(document).ready(function() {
       } else
         console.log("User Login Successful");
     });
+
     window.location.replace("/account")
   });
 

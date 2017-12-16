@@ -122,7 +122,7 @@ router.get("/api/animal/:id", function(req, res) {
 //        })
 // }
 
-//for user information
+//get user information by id
 
 router.get("/api/user/:id", function(req, res) {
   //list all the favorate animals
@@ -143,6 +143,23 @@ router.get("/api/user/:id", function(req, res) {
     // }
     //   console.log("_____________________________")
     //   console.log(animalList)
+    res.json(data);
+
+  })
+})
+
+//get user information by email
+
+router.get("/api/user/email/:email", function(req, res) {
+  //list all the favorate animals
+
+  queries.User.findOne({
+    where: {
+      email: req.params.email
+    },
+    include: [queries.Pet]
+  }).then(function(data) {
+
     res.json(data);
 
   })
