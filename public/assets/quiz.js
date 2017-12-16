@@ -91,6 +91,7 @@ function addUserData(data,url){
     console.log(userId)
     getInfo(url);
   })
+
 }
 
 //get recommended animals
@@ -126,6 +127,8 @@ function addData(data){
     $.post("/api/animals", newAnimal, function(info){
       console.log("animal added")
       console.log(info)
+      //get to the account page
+      window.location.href = "/account"
     })
   }
 
