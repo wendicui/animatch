@@ -17,6 +17,8 @@ $(document).ready(function() {
   };
   firebase.initializeApp(config);
 
+  var userData = firebase.database();
+
 
   //create user
   $('#signup-button').on("click", function() {
@@ -38,6 +40,7 @@ $(document).ready(function() {
       } else
         console.log("User Submitted");
     });
+
     window.location.replace("/quiz");
   });
 

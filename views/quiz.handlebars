@@ -40,7 +40,7 @@
       <div class="col s4 push-s1">
         <h6>Kind of Animal:</h6>
           <p><label>
-             <input class="with-gap" type="radio" name="animal-group" value="cat" checked="checked"/>
+             <input class="with-gap" type="radio" name="animal-group" value="cat"/>
              <span>Cat</span>
            </label></p>
 
@@ -67,44 +67,49 @@
 
       <!-- CURRENT PETS -->
       <div class="col s3">
-        <h6>Current Pets:</h6>
+        <h6>Pet Size</h6>
           <p><label>
-             <input type="radio" class="filled-in" name="pet-group" value="cat"/>
-             <span>Cat</span>
+             <input type="radio" class="with-gap" name="size-group" value="S"/>
+             <span>Small</span>
            </label></p>
 
           <p><label>
-             <input type="radio" class="filled-in" name="pet-group" value="dog"/>
-             <span>Dog</span>
+             <input type="radio" class="filled-in" name="size-group" value="M"/>
+             <span>Medium</span>
            </label></p>
 
            <p><label>
-              <input type="radio" class="filled-in" name="pet-group" value="both"/>
-              <span>Both</span>
+              <input type="radio" class="with-gap" name="size-group" value="L"/>
+              <span>Large</span>
             </label></p>
+
+            <p><label>
+               <input type="radio" class="with-gap" name="size-group" value="XL"/>
+               <span>Extra Large</span>
+             </label></p>
       </div>
 
       <!-- CHILDREN IN HOME -->
       <div class="col s4">
-        <h6>Children in Home:</h6>
+        <h6>Age of Animal:</h6>
           <p><label>
-             <input type="checkbox" class="filled-in" name="child-group" value="toddlers-infants"/>
-             <span>Under 7</span>
+             <input class="with-gap" type="radio" name="age-group" value="baby"/>
+             <span>Baby</span>
            </label></p>
 
           <p><label>
-             <input type="checkbox" class="filled-in" name="child-group" value="young-children"/>
-             <span>7-12</span>
+             <input class="with-gap" type="radio" name="age-group" value="young"/>
+             <span>Young</span>
            </label></p>
 
           <p><label>
-            <input type="checkbox" class="filled-in" name="child-group" value="teen-children"/>
-            <span>13-18</span>
+            <input class="with-gap" type="radio" name="age-group" value="adult"/>
+            <span>Adult</span>
           </label></p>
 
           <p><label>
-           <input type="checkbox" class="filled-in" name="child-group" value="no-children"/>
-           <span>No Children / Adults Only</span>
+           <input class="with-gap" type="radio" name="age-group" value="senior"/>
+           <span>Senior</span>
          </label></p>
       </div>
     </div>
@@ -116,7 +121,7 @@
       <div class="col s4 push-s1">
         <h6>Type of Home:</h6>
           <p><label>
-             <input class="with-gap" type="radio" name="home-group" value="home-wb" checked/>
+             <input class="with-gap" type="radio" name="home-group" value="home-wb"/>
              <span>House with Backyard</span>
            </label></p>
 
@@ -168,15 +173,10 @@
 
       <!-- BREED TYPE -->
       <div class="col s3">
-        <h6>Breed / Type:</h6>
-        <div class="input-field col s12">
-          <select multiple>
-            <option value="" disabled selected>Choose your option</option>
-            <option value="1">Option 1</option>
-            <option value="2">Option 2</option>
-            <option value="3">Option 3</option>
-          </select>
-          <label>Materialize Multiple Select</label>
+        <h6>Your Location:</h6>
+        <div class="input-field col s6">
+          <input id="user-zip" type="text" class="validate">
+          <label for="user-zip">Zip Code</label>
         </div>
       </div>
 

@@ -1,4 +1,3 @@
-
 var express = require('express');
 var router = express.Router();
 var parser = express.json();
@@ -8,10 +7,11 @@ var queries = require("../models");
 var request = require('request');
 var apikey = "8c46a80af9f4501e366c726a72006ad8";
 var secret = "041e4b5e005bf0fe3dce1929e5d7813b";
+// var $ = require("jquery");
 
 //html render
-router.get("/login",(req,res)=> {
-    res.render("login");
+router.get("/login", (req, res) => {
+  res.render("login");
 })
 
 router.get("/create-account", (req, res) => {
@@ -42,30 +42,29 @@ router.get("/home", (req, res) => {
 });
 
 
-router.get('/', function (req, res) {
-    res.render('index');
+router.get('/', function(req, res) {
+  res.render('index');
 });
 
 
 
 // api router
-  //get bread list
-  router.get("/api/pets/:animal", function(req,res){
-     var url = "http://api.petfinder.com/breed.list?format=json&key=";
-     var animal = req.params.animal;
+//get bread list
+router.get("/api/pets/:animal", function(req, res) {
+  var url = "http://api.petfinder.com/breed.list?format=json&key=";
+  var animal = req.params.animal;
 
-     url += apikey;
-     url += `&animal=${animal}`
+  url += apikey;
+  url += `&animal=${animal}`
 
-     //console.log("this is the " + url)
+  //console.log("this is the " + url)
 
-     request(url, function(error, response, body){
-       var allResults = JSON.parse(body);
-       var resultArray = allResults.petfinder.breeds
-       res.json(resultArray)
-     })
-
+  request(url, function(error, response, body) {
+    var allResults = JSON.parse(body);
+    var resultArray = allResults.petfinder.breeds
+    res.json(resultArray)
   })
+
 
   //return specific animals
   router.get("/api/pets/:animal/:breed/:size/:location/:age/:sex", function(req,res){
@@ -81,28 +80,29 @@ router.get('/', function (req, res) {
       }
     }
 
-    request(url, function(error, response, body){
-      var results = JSON.parse(body)
-      var status = results.petfinder.header.status
-      var list = results.petfinder.pets
-      console.log(list);
-      res.json(list);
-    })
+  request(url, function(error, response, body) {
+    var results = JSON.parse(body)
+    var status = results.petfinder.header.status
+    var list = results.petfinder.pets
+    console.log(list);
+    res.json(list);
   })
+})
 
 // //get animal infor by id
-  router.get("/api/animal/:id",function(req,res){
-    var url = "http://api.petfinder.com/pet.get?format=json&key=";
-    var id = req.parmas.id
-     url += apikey;
-     url += `&id=${id}`
+router.get("/api/animal/:id", function(req, res) {
+  var url = "http://api.petfinder.com/pet.get?format=json&key=";
+  var id = req.parmas.id
+  url += apikey;
+  url += `&id=${id}`
 
-     request(url, function(err, response, body){
-       var results = JSON.parse(body)
-       var animal = results.petfinder.pets
-       res.json(animal)
-     })
+  request(url, function(err, response, body) {
+    var results = JSON.parse(body)
+    var animal = results.petfinder.pets
+    res.json(animal)
   })
+});
+
 
 // function that grab animal infor by id
 // function getAnimalbyId(idPassedIn, Obj, i){
@@ -124,16 +124,16 @@ router.get('/', function (req, res) {
 
 //for user information
 
-  router.get("/api/user/:id", function(req,res){
-    //list all the favorate animals
-    console.log("ere")
-    queries.User.findOne({
-      where:{
-        id:req.params.id
-      },
-      include:[queries.Pet]
-    }).then(function(data){
-      //create an object to hold all the data info
+router.get("/api/user/:id", function(req, res) {
+  //list all the favorate animals
+  console.log("ere")
+  queries.User.findOne({
+    where: {
+      id: req.params.id
+    },
+    include: [queries.Pet]
+  }).then(function(data) {
+    //create an object to hold all the data info
     // var animalList = {}
     // var allAnimals = data.dataValues.Pets;
     // for (var i = 0; i < allAnimals.length; i++) {
@@ -143,10 +143,11 @@ router.get('/', function (req, res) {
     // }
     //   console.log("_____________________________")
     //   console.log(animalList)
-      res.json(data);
+    res.json(data);
 
-    })
   })
+})
+
 
   //create new user file
   router.post("/api/users", function(req,res) {
@@ -154,15 +155,16 @@ router.get('/', function (req, res) {
     queries.User.create(req.body).then(function(data){
       res.json(data);
     })
-  })
+})
 
-  //create new animal
+//create new animal
+
 
   router.post("/api/animals", function(req,res) {
     console.log(req.body)
     queries.Pet.create(req.body).then(function(data){
       res.json(data);
     })
-  })
+})
 
 module.exports = router;
