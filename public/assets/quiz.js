@@ -4,6 +4,12 @@ var children;
 var homeType;
 var activityLevel;
 
+//api variables
+var size , age, breed, age, sex= "undefined";
+
+// can be changed according to user location
+//var location = "07302";
+
 $(document).ready(function() {
   console.log("Connected");
   // GET INFO
@@ -18,5 +24,27 @@ $(document).ready(function() {
     console.log(animalType);
     console.log(currentPet);
     console.log(children);
+    console.log(homeType);
+
+    if(children === "toddlers-infants"  ){
+      size = "S";
+      age = "Baby"
+    }
+    if(homeType === "apartment"){
+      size = "S";
+    }
+
+    var url = `/api/pets/${animalType}/${breed}/${size}/07302/${age}/${sex}`
+    console.log(url)
+    getInfo(url)
+
   });
+
+function getInfo(url){
+  $.get(url,function(data){
+    console.log("working")
+    console.log(data)
+  })
+}
+
 });

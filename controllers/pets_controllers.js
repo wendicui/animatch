@@ -70,7 +70,8 @@ router.get('/', function (req, res) {
   //return specific animals
   router.get("/api/pets/:animal/:breed/:size/:location/:age/:sex", function(req,res){
    var url = "http://api.petfinder.com/pet.find?format=json&key=";
-
+    var param = req.params;
+    console.log(param)
     url += apikey;
     url += '&count=6'
     //check whether the input is made from users and add to url
