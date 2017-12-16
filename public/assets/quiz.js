@@ -1,8 +1,4 @@
-//import user data
 
-var firstname = localStorage.getItem('firstname')
-var lastname = localStorage.getItem('lastname')
-var userId
 
 //api variables
 var size , age, breed, age, sex= "undefined";
@@ -10,6 +6,14 @@ var size , age, breed, age, sex= "undefined";
 //var location = "07302";
 
 $(document).ready(function() {
+
+  //import user data
+
+  var firstname = localStorage.getItem('firstname')
+  var lastname = localStorage.getItem('lastname')
+  var userId
+
+
   console.log("Quiz-Connected");
   console.log(firstname);
 
@@ -71,18 +75,20 @@ $(document).ready(function() {
       currentPet:currentPet
     }
 
-    addUserData(survey)
-    getInfo(url)
+    addUserData(survey,url)
+
 
   });
 
 //add user survey to database
-function addUserData(data){
+function addUserData(data,url){
   $.post("/api/users", data, function(info){
     console.log("survey added")
-    console.log(info)
+    //console.log(info)
     //get user id incase to add favorate animals to database
     userId = info.id
+    console.log(userId)
+    getInfo(url);
   })
 }
 
@@ -90,10 +96,40 @@ function addUserData(data){
 function getInfo(url){
   $.get(url,function(data){
     console.log("working")
-    console.log(data)
+  //  console.log(data)
+  //  console.log(data.pet[0].media.photos.photo[0])
+  //  addData(data)
     //display(data)
   })
 }
+
+// add the match to create animal
+function addData(data){
+  var array = data.pet;
+  for (var i = 0; i < array.length; i++) {
+    var animal = array[i];
+    //create animal infor
+    console.log('this is '+ userId)
+    var newAnimal = {
+      animal:animal.animal.$t,
+      breed:animal.breeds.breed.$t,
+      petFinderId:animal.id.$t,
+      age:animal.id.$t,
+    //  media:animal.media.photos.photo[0].$t,
+      size:animal.size.$t,
+      sex:animal.sex.$t,
+      description: animal.description.$t,
+      UserId: parseInt(userId)
+    }
+    //add animal to database
+    $.post("/api/animals", data, function(info){
+      console.log("animal added")
+      console.log(info)
+    })
+  }
+
+}
+
 
 // display data to show search result
 function display(data){
