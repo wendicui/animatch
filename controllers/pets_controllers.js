@@ -64,7 +64,7 @@ router.get("/api/pets/:animal", function(req, res) {
     var resultArray = allResults.petfinder.breeds
     res.json(resultArray)
   })
-
+});
 
   //return specific animals
   router.get("/api/pets/:animal/:breed/:size/:location/:age/:sex", function(req,res){

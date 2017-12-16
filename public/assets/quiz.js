@@ -35,11 +35,14 @@ $(document).ready(function() {
     var children = $("input[type=checkbox][name=child-group]:checked").val();
     var homeType = $("input[type=radio][name=home-group]:checked").val();
     var activityLevel = $("input[type=radio][name=activity-level]:checked").val();
+    var location = $("#user-zip").val().trim();
+
     console.log("animalType "+ animalType);
     console.log("currentPet "+currentPet);
     console.log("children "+children);
     console.log("homeType "+homeType);
     console.log("activityLevel "+activityLevel);
+    console.log("location" + location)
 // filter search range based on user input
     if(children === "toddlers-infants"  ){
       size = "S";
@@ -49,12 +52,12 @@ $(document).ready(function() {
       size = "S";
     }
 
-    var url = `/api/pets/${animalType}/${breed}/${size}/07302/${age}/${sex}`
+    var url = `/api/pets/${animalType}/${breed}/${size}/${location}/${age}/${sex}`
     console.log(url)
 
 // create survey object for user
     var survey = {
-      zipcode: "07302",
+      zipcode: location,
       homeType:homeType,
       activityLevel:activityLevel,
       children:children,
