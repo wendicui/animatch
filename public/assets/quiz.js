@@ -87,6 +87,7 @@ function addUserData(data,url){
     //console.log(info)
     //get user id incase to add favorate animals to database
     userId = info.id
+    localStorage.setItem("id",userId)
     console.log(userId)
     getInfo(url);
   })

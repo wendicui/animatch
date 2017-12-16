@@ -1,13 +1,17 @@
-<!-- Local stylesheet -->
-<link rel="stylesheet" href="/assets/stylesheets/quiz.css">
 
-<!-- JQUERY -->
-<script src="https://code.jquery.com/jquery.js"></script>
+var id = localStorage.getItem("id")
 
-<!-- Local JS -->
-<script rel="JavaScript" src="/assets/account.js"></script>
+//get all the matched animals
 
-<!-- Compiled and minified JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+$(document).ready(function() {
+  console.log(id)
+  getAnimals(id)
 
-var name = localStorage.getItem(firstname)
+//get all the matched data for this user
+  function getAnimals(userid){
+
+    $.get(`/api/user/${id}`, function(data){
+      console.log(data)
+    })
+  }
+})
