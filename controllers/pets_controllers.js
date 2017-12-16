@@ -72,7 +72,7 @@ router.get("/api/pets/:animal", function(req, res) {
     var param = req.params;
     console.log(param)
     url += apikey;
-    url += '&count=6'
+    url += '&count=8'
     //check whether the input is made from users and add to url
     for(var key in param){
       if(param[key] != "undefined"){

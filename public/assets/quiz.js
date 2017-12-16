@@ -113,6 +113,13 @@ function addData(data){
   var array = data.pet;
   for (var i = 0; i < array.length; i++) {
     var animal = array[i];
+    var photo
+    //check if it has images
+    if(animal.media.photos.photo){
+      photo = animal.media.photos.photo[0].$t
+    }else{
+      photo = '../images/dog-1.jpeg'
+    }
     //create animal infor
     console.log('this is '+ userId)
     var newAnimal = {
@@ -121,7 +128,7 @@ function addData(data){
       breed:animal.breeds.breed.$t,
       petFinderId:animal.id.$t,
       age:animal.age.$t,
-      //media:animal.media.photos.photo[0].$t,
+      media:photo,
       size:animal.size.$t,
       sex:animal.sex.$t,
       description: animal.description.$t,
