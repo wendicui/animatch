@@ -1,10 +1,10 @@
 module.exports = function(sequelize, DataTypes){
   var User = sequelize.define("User",{
     name: DataTypes.STRING,
-    zipcode: DataTypes.INTEGER,
+    zipcode: DataTypes.STRING,
     homeType: DataTypes.STRING,
     activityLevel: DataTypes.STRING,
-    children: DataTypes.BOOLEAN,
+    children: DataTypes.STRING,
     currentPet: DataTypes.STRING
   },{
     timestamps:false

@@ -149,7 +149,8 @@ router.get('/', function (req, res) {
   })
 
   //create new user file
-  router.put("/api/users", function(req,res) {
+  router.post("/api/users", function(req,res) {
+    console.log(req.body)
     queries.User.create(req.body).then(function(data){
       res.json(data);
     })
@@ -157,7 +158,8 @@ router.get('/', function (req, res) {
 
   //create new animal
 
-  router.put("/api/animals", function(req,res) {
+  router.post("/api/animals", function(req,res) {
+    console.log(req.body)
     queries.Pet.create(req.body).then(function(data){
       res.json(data);
     })
