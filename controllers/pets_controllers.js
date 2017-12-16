@@ -65,20 +65,20 @@ router.get("/api/pets/:animal", function(req, res) {
     res.json(resultArray)
   })
 
-})
 
-//return specific animals
-router.get("/api/pets/:animal/:breed/:size/:location/:age/:sex", function(req, res) {
-  var url = "http://api.petfinder.com/pet.find?format=json&key=";
-
-  url += apikey;
-  url += '&count=6'
-  //check whether the input is made from users and add to url
-  for (var key in param) {
-    if (param[key] != "undefined") {
-      url += `&${key}=${param[key]}`
+  //return specific animals
+  router.get("/api/pets/:animal/:breed/:size/:location/:age/:sex", function(req,res){
+   var url = "http://api.petfinder.com/pet.find?format=json&key=";
+    var param = req.params;
+    console.log(param)
+    url += apikey;
+    url += '&count=6'
+    //check whether the input is made from users and add to url
+    for(var key in param){
+      if(param[key] != "undefined"){
+        url += `&${key}=${param[key]}`
+      }
     }
-  }
 
   request(url, function(error, response, body) {
     var results = JSON.parse(body)
@@ -148,19 +148,23 @@ router.get("/api/user/:id", function(req, res) {
   })
 })
 
-//create new user file
-router.put("/api/users", function(req, res) {
-  queries.User.create(req.body).then(function(data) {
-    res.json(data);
-  })
+
+  //create new user file
+  router.post("/api/users", function(req,res) {
+    console.log(req.body)
+    queries.User.create(req.body).then(function(data){
+      res.json(data);
+    })
 })
 
 //create new animal
 
-router.put("/api/animals", function(req, res) {
-  queries.Pet.create(req.body).then(function(data) {
-    res.json(data);
-  })
+
+  router.post("/api/animals", function(req,res) {
+    console.log(req.body)
+    queries.Pet.create(req.body).then(function(data){
+      res.json(data);
+    })
 })
 
 module.exports = router;
