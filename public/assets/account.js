@@ -20,7 +20,8 @@ $(document).ready(function() {
 
     $.get(`/api/user/email/${email}`, function(data){
       console.log(data)
-      populate(data)
+      // in case multiple data
+      populate(data[data.length - 1])
     })
   }
 
