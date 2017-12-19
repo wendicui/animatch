@@ -51,7 +51,14 @@ $(document).ready(function() {
       cont2.append(newDiv);
     }
 
-
+    //update user info
+    $(".user-name").text = data.username;
+    $(".user-location").text = data.location;
+    $(".user-hometype").text = data.location;
+    $(".user-activity-level").text = data.location;
+    $(".user-children").text = data.location;
+    $(".user-pets").text = data.location;
+    $(".user-seeking").text = data.location;
   }
 
 })
