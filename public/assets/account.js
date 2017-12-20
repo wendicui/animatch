@@ -33,8 +33,8 @@ $(document).ready(function() {
       var newDiv = $('<div  class="col s3 z-depth-1" id="match-container">');
       var img= $(' <img  id="match-picture">');
       var name = $("<p>")
-      name.text = data[i].name.$t;
-      img.src = data[i].media;
+      name.text = data.Pets[i].name;
+      img.src = data.Pets[i].media;
       newDiv.append(img);
       newDiv.append(name);
       cont1.append(newDiv);
@@ -45,21 +45,21 @@ $(document).ready(function() {
       var newDiv = $('<div  class="col s3 z-depth-1" id="match-container">');
       var img= $(' <img  id="match-picture">');
       var name = $("<p>")
-      name.text = data[i].name.$t;
-      img.src = data[i].media;
+      name.text = data.Pets[i].name;
+      img.src = data.Pets[i].media;
       newDiv.append(img);
       newDiv.append(name);
       cont2.append(newDiv);
     }
 
     //update user info
-    $(".user-name").text = data.username;
-    $(".user-location").text = data.location;
-    $(".user-hometype").text = data.location;
-    $(".user-activity-level").text = data.location;
-    $(".user-children").text = data.location;
-    $(".user-pets").text = data.location;
-    $(".user-seeking").text = data.location;
+    $(".user-name").text = data.name;
+    $(".user-location").text = data.zipcode;
+    $(".user-hometype").text = data.hometype;
+    $(".user-activity-level").text = data.activityLevel;
+    $(".user-children").text = data.children;
+    $(".user-pets").text = data.currentPet;
+    $(".user-seeking").text = data.Pets[i].animal;
   }
 
 })
