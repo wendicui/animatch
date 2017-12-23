@@ -42,8 +42,8 @@ $(document).ready(function() {
 
 
     var animalType = $("input[type=radio][name=animal-group]:checked").val();
-    var currentPet = $("input[type=checkbox][name=pet-group]:checked").val();
-    var children = $("input[type=checkbox][name=child-group]:checked").val();
+    var currentPet = $("input[type=radio][name=size-group]:checked").val();
+    var children = $("input[type=radio][name=age-group]:checked").val();
     var homeType = $("input[type=radio][name=home-group]:checked").val();
     var activityLevel = $("input[type=radio][name=activity-level]:checked").val();
     var location = $("#user-zip").val().trim();
